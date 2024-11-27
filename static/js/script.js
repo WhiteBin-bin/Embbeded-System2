@@ -9,7 +9,7 @@ $(document).ready(function () {
     var res3 = []; // Light 데이터
     const bulbElement = document.getElementById("bulb");
     const buzzerElement = document.getElementById("buzzer");
-
+    const powerElement = document.getElementById("power");
     var options = {
         colors: ["#30323c"],
         series: {
@@ -23,9 +23,12 @@ $(document).ready(function () {
             }
         },
         yaxis: {
-            min: 0,
-            max: 1,
-            tickSize: 1
+            min:0,
+            max:1,
+            ticks:[
+                [0, "OFF"],
+                [1, "ON"]
+            ]
         },
         xaxis: {
             show: false,
@@ -78,12 +81,21 @@ $(document).ready(function () {
                     res3.push([i, sensorData['TILT']]);
                 }
                 var LightValue = sensorData['Light'];
-                
-                if(LightValue == 1) {
-                    bulbElement.className = "bulb-on"
-                }else {
+                var buttonValue = sensorData['But'];
+                if((LightValue == 1) || (LightValue == 0 && buttonValue == 0)) {
                     bulbElement.className = "bulb-off"
                 }
+                else {
+                    bulbElement.className = "bulb-on"
+                }
+
+                if(buttonValue == 1) {
+                    powerElement.className = "power-off"
+                }
+                else{
+                    powerElement.className = "power-on"
+                }
+                
                 if(sensorData['IR'] == 1 || sensorData['TILT'] == 1) {
                     updateBuzzer(1)
                 }else {
@@ -120,7 +132,6 @@ $(document).ready(function () {
             buzzerElement.className = "buzzer-off"
         }
     }
-
     // 업데이트 간격 설정 및 시작
     var updateInterval = 1000; // 1초마다 업데이트
 
