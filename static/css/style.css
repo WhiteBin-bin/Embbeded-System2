@@ -208,6 +208,7 @@ table tr:hover {
         flex-direction: row;
         flex-wrap: wrap;
         height: auto;
+        gap: 20px; /* 바꾼거 */
     }
 
     .sensor-container {
@@ -218,6 +219,21 @@ table tr:hover {
         flex-wrap: wrap; /* 아이콘이 가로로 공간이 부족하면 줄 바꿈 */
         justify-content: center;
     }
+
+    /* chart-wrapper, title 바꾼거*/
+    .chart-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 10px; /* 제목과 그래프 간 간격 */
+        align-items: center;
+        width: 300px; /* 그래프 너비 */
+    }
+    
+    .chart-title {
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+    } 
 }
 
 @media (max-width: 480px) {
