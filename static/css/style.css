@@ -127,7 +127,7 @@ table tr:hover {
 }
 
 /* 개별 그래프 */
-.graph {
+.floatchart {
     height: 150px; /* 그래프 높이 */
     background-color: #f7fafc;
     border: 1px solid #e2e8f0;
