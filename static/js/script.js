@@ -28,7 +28,11 @@ $(document).ready(function () {
             ticks:[
                 [0, "OFF"],
                 [1, "ON"]
-            ]
+            ],        
+            font: {
+                color: "#68f350", // 틱 레이블 색상
+                size: 12 // 폰트 크기
+            }
         },
         xaxis: {
             show: false,
