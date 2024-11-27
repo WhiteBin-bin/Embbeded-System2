@@ -1,0 +1,73 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    {% load static %}
+    <head>
+        <meta charset="UTF-8">
+        <title>IoT Project 6조</title>
+        <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
+    </head>
+    <body>
+        <h1>DashBoard</h1>
+        <div class="groupClass">
+            <div class="pageClass">
+                <div class="LittleTitle">
+                    Static Table
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                        <th>Date</th>
+                        <th>ID</th>
+                        <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if sensor_value_list %}
+                            {% for sensor in sensor_value_list %}
+                            <tr>
+                                <td>{{ sensor.reg_date }}</td>
+                                <td>{{ sensor.id }}</td>
+                                <td>{{ sensor.value }}</td>
+                            </tr>
+                            
+                            {% endfor %}
+                        {% else %}
+                            <p>No sensor values are available.</p>
+                        {% endif %}
+                    </tbody>
+                </table> 
+            </div>
+
+            <div class="pageClass">
+                <div class="LittleTitle">
+                    장애물 감지 센서
+                </div>
+                <div class="card-block m-t-35" >
+                    <div id="realtime1" class="flotChart"></div>
+                </div>
+            
+                <div class="LittleTitle">
+                    기울기센서
+                </div>
+                <div class="card-block m-t-35" >
+                    <div id="realtime2" class="flotChart"></div>
+                </div>
+                <div class="LittleTitle">
+                    조도센서
+                </div>
+                <div class="card-block m-t-35" >
+                    <div id="realtime3" class="flotChart"></div>
+                </div>
+            </div>        
+        </div>
+
+        <script type="text/javascript" src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/flot/jquery.flot.js' %}" ></script>
+        <script type="text/javascript" src="{% static 'js/flot/jquery.flot.resize.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/flot/jquery.flot.stack.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/flot/jquery.flot.time.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/flot/jquery.flot.categories.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/flot/jquery.flot.pie.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+    </body>
+</html>
