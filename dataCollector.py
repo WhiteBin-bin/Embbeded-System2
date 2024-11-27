@@ -6,6 +6,10 @@ import json
 
 flag = False
 headers = {'Content-Type': 'application/json'}
+session = requests.Session()
+session.headers.update(
+    {'Content-Type':'application/json'}
+)
 
 # config COM port
 while(1):
@@ -48,8 +52,12 @@ while(1):
             continue
         start = time.time()
         try:
-            requests.post("http://localhost:8000/sensor/setSensor", data = json.dumps(data),headers=headers)
-            # lora보드로 데이터 1줄 받는게 총 16초 걸림 
+            response = session.post("http://localhost:8000/sensor/setSensor",data = json.dumps(data))
+            #requests.post("http://localhost:8000/sensor/setSensor", data = json.dumps(data),headers=headers,timeout=2.0) # 오래 걸림
+            if response.status_code == 200:
+                print("Response:", response.json())
+            else:
+                print("Failed")
         except:
             print("Invaild Command")
         end = time.time()
