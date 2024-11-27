@@ -192,6 +192,20 @@ table tr:hover {
     background-image: url('/static/images/buzzeron.jpg');
 }
 
+/* 절전 모드 상태 */
+.power-off {
+    width: 80px;
+    height: 80px;
+    background-image: url('/static/images/poweroff.png'); /* 절전 모드 비활성화 이미지 */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.power-on {
+    background-image: url('/static/images/poweron.png'); /* 절전 모드 활성화 이미지 */
+}
+
 /* 반응형 디자인 */
 @media (max-width: 768px) {
     .groupClass {
