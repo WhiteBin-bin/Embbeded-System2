@@ -38,27 +38,20 @@ while(1):
         if not smo:
             continue
         msg = smo.decode()
-        print(msg)
         if msg[:2]!="IR":
             continue
         msg = msg.replace('\x00', '').replace('\n', '')
         # 반복문 넣기
-        print(msg)
+        if len(msg)!=28:
+            continue
         try:
             data = {'value' : msg}
             print(data)
         except:
             print("Invaild Value")
             continue
-        start = time.time()
         try:
             response = session.post("http://localhost:8000/sensor/setSensor",data = json.dumps(data))
             #requests.post("http://localhost:8000/sensor/setSensor", data = json.dumps(data),headers=headers,timeout=2.0) # 오래 걸림
-            if response.status_code == 200:
-                print("Response:", response.json())
-            else:
-                print("Failed")
         except:
             print("Invaild Command")
-        end = time.time()
-        print(f"{end - start:.5f} sec")
