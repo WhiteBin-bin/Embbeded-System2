@@ -26,3 +26,9 @@ def setSensor(request):
         return JsonResponse({"message": "OK"}, status=200)
     except KeyError:
         return JsonResponse({"message": "KEY_ERROR"}, status=400)
+
+def cane_description(request):
+    return render(request, 'sensor/cane_description.html')
+
+def our_team(request):
+    return render(request, 'sensor/our_team.html')
