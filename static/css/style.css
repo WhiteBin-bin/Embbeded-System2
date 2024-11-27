@@ -168,7 +168,7 @@ table tr:hover {
 }
 
 /* LED 및 부저 상태 */
-.bulb-off, .buzzer-off {
+.bulb-off, .buzzer-off, .bulb-on, .buzzer-on {
     width: 80px;
     height: 80px;
     background-size: contain;

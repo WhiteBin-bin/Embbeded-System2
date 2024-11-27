@@ -73,9 +73,9 @@ $(document).ready(function () {
                     });
 
                     
-                    res1.push([i, sensorData['IR']]);
-                    res2.push([i, sensorData['TILT']]);
-                    res3.push([i, sensorData['Light']]);
+                    res1.push([i, sensorData['Light']]);
+                    res2.push([i, sensorData['IR']]);
+                    res3.push([i, sensorData['TILT']]);
                 }
                 var LightValue = sensorData['Light'];
                 
