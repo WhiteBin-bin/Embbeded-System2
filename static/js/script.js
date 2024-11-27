@@ -76,8 +76,8 @@ $(document).ready(function () {
                     });
 
                     
-                    res1.push([i, sensorData['Light']]);
-                    res2.push([i, sensorData['IR']]);
+                    res1.push([i, sensorData['IR']]);
+                    res2.push([i, sensorData['Light']]);
                     res3.push([i, sensorData['TILT']]);
                 }
                 var LightValue = sensorData['Light'];
@@ -95,7 +95,7 @@ $(document).ready(function () {
                 else{
                     powerElement.className = "power-on"
                 }
-                
+
                 if(sensorData['IR'] == 1 || sensorData['TILT'] == 1) {
                     updateBuzzer(1)
                 }else {
