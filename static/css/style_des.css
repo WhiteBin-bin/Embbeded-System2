@@ -1,0 +1,113 @@
+/* Import custom fonts */
+@import url('//cdn.jsdelivr.net/gh/neodgm/neodgm-webfont@1.600/neodgm/style.css');
+
+/* 기본 스타일 */
+html {
+    background-color: #30323c; /* 배경색 설정 */
+    height: 100%; /* 전체 높이 확보 */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f4f6; /* 밝은 회색 배경 */
+    color: #333333;
+    min-height: 100%; /* 최소 높이 설정 */
+    display: flex; /* Flexbox 활성화 */
+    flex-direction: column; /* 위에서 아래로 배치 */
+}
+
+/* 컨텐츠 영역 */
+main {
+    flex: 1; /* 컨텐츠 영역이 가능한 모든 공간 차지 */
+}
+
+/* 푸터 스타일 */
+footer {
+    background-color: #30323c;
+    text-align: right; /* 오른쪽 정렬 */
+    padding: 1rem 2rem; /* 상하 여백과 오른쪽 여백 추가 */
+    color: #ffffff;
+    font-size: 0.9rem;
+    margin-top: auto; /* 항상 맨 아래로 유지 */
+}
+
+h1 {
+    text-align: center;
+    color: #2b6cb0; /* Tailwind's blue-700 */
+    font-size: 2.4rem;
+    font-weight: bold;
+    margin-top: 1.5rem;
+}
+
+h2 {
+    color: #1a365d; /* Tailwind's darker blue */
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+p {
+    text-align: justify;
+    line-height: 1.8;
+    padding: 0 1.5rem;
+}
+
+.section {
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;
+}
+
+/* 테이블 스타일 */
+.specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.specs-table th, .specs-table td {
+    padding: 1rem;
+    border: 1px solid #e2e8f0;
+    text-align: left;
+}
+
+.specs-table th {
+    background-color: #2c5282; /* Tailwind's blue-800 */
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.specs-table tr:nth-child(even) {
+    background-color: #f7fafc; /* Tailwind's light gray */
+}
+
+.specs-table tr:hover {
+    background-color: #edf2f7; /* Tailwind's hover gray */
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    body {
+        font-size: 0.9rem;
+    }
+
+    .section {
+        padding: 1.5rem;
+    }
+
+    .specs-table th, .specs-table td {
+        padding: 0.8rem;
+    }
+}

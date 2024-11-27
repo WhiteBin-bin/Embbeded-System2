@@ -1,117 +1,233 @@
+/* Importing custom font */
 @import url('//cdn.jsdelivr.net/gh/neodgm/neodgm-webfont@1.600/neodgm/style.css');
-html{
-  background-color: #30323c;
-} 
-.flotChart {
-    width: 100%;
-    height: 250px;
+
+/* 기본 페이지 설정 */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    color: #333333;
+    background-color: #f3f4f6; /* 밝은 회색 배경 */
+    height: 100%;
 }
-.groupClass
-{
+
+/* 상단 헤더와 네비게이션 스타일 */
+header {
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+    padding: 1.5rem 0;
+}
+
+header .container {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-.pageClass
-{
-    width: 50%;
-    padding: 2em 2em; 
-    margin: 2em 1em; 
-    font-weight: bold; 
-    color: #68f350; 
-    background: #FFF; 
-    border: solid 3px #30323c; 
-    border-radius: 10px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2.5rem;
 }
 
-.LittleTitle
-{
-    padding: .43em 0em .35em .7em;
-    font-weight: bold; 
-    color: #68f350;
-    background: #30323c; 
-    border-left: solid 10px black;
-    font-family: 'NeoDunggeunmo';
-    font-size: 1.5em;
-}
-.bt {
-  appearance: none; /* 브라우저 기본 스타일 제거 */
-  padding: 12px 24px; /* 버튼의 패딩 */
-  font-size: 16px; /* 폰트 크기 */
-  font-family: 'NeoDunggeunmo', sans-serif; /* 폰트 패밀리 */
-  background-color: #275efe; /* 배경색 */
-  color: white; /* 텍스트 색상 */
-  border-radius: 8px; /* 둥근 테두리 */
-  border: none; /* 테두리 제거 */
-  cursor: pointer; /* 마우스 커서를 포인터로 변경 */
-  transition: background-color .3s ease, transform .3s ease; /* 호버 시 애니메이션 효과 */
-
-  &:hover {
-      background-color: #1b47d4; /* 호버 시 배경색 변경 */
-      transform: translateY(-2px); /* 호버 시 살짝 위로 이동 */
-  }
-
-  &:active {
-      background-color: #123296; /* 클릭 시 배경색 변경 */
-      transform: translateY(0); /* 클릭 시 원래 위치로 돌아옴 */
-  }
+header h1 {
+    color: #2b6cb0;
+    font-size: 1.8rem;
+    font-weight: bold;
 }
 
-table {
-    border-collapse: collapse;
-    /* width: 500px; */
-    margin: 1rem auto;
-    background-color: white;
-    font-family: 'NeoDunggeunmo';
-    font-size: 1.3em;
-  }
-  
-  /* 테이블 행 */
-  th, td {
-    padding: 8px;
-    text-align: left;
-    border-bottom: 1px solid #30323c;
-    text-align: center;
-  }
-  
-  th {
-    background-color: #30323c;
-    color: #68f350;
-  }
-  
-  /* 테이블 올렸을 때 */
-  tbody tr:hover {
-    background-color: #30323c;
-    opacity: 0.9;
-    cursor: pointer;
-  }
-  
-  /* 테이블 비율 */
-  th:nth-child(1),
-  td:nth-child(1) {
-    width: 70%;
-  }
-  
-  th:nth-child(2),
-  td:nth-child(2) {
-    width: 10%;
-  }
-  
-  th:nth-child(3),
-  td:nth-child(3) {
-    width: 20%;
-  }
-  
-  h1 {
-    display: block;
-    font-size: 3em;
-    margin-block-start: 0.67em;
-    margin-block-end: 0.67em;
-    margin-left: auto;
-    margin-right: auto;
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li a {
+    color: #4a5568;
+    text-decoration: none;
     font-weight: 600;
-    unicode-bidi: isolate;
+    transition: color 0.3s, transform 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #3182ce;
+    transform: scale(1.05);
+}
+
+h2.LittleTitle {
+    font-size: 2.8rem;
+    color: #1a365d; /* Tailwind's darker blue */
+    margin-bottom: 2rem;
     text-align: center;
-    font-family: 'NeoDunggeunmo';
-    color: #68f350;
+    font-weight: 700;
+}
+
+/* 메인 컨테이너 레이아웃 */
+.groupClass {
+    display: flex;
+    height: calc(100vh - 100px); /* 헤더 제외 전체 높이 */
+}
+
+.pageClass {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    border-right: 2px solid #e2e8f0;
+    background-color: #ffffff;
+    box-shadow: inset -4px 0 6px rgba(0, 0, 0, 0.05);
+}
+
+/* 센서(그래프) 영역 */
+.sensor-container {
+    flex: 3;
+    display: flex;
+    flex-direction: column; /* 세로로 정렬 */
+    gap: 1rem;
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 테이블 스타일 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    padding: 0.8rem;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+table th {
+    background-color: #2c5282;
+    color: #ffffff;
+    font-size: 0.9rem;
+}
+
+table tr:nth-child(even) {
+    background-color: #f7fafc;
+}
+
+table tr:hover {
+    background-color: #edf2f7;
+}
+
+.graph-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 개별 그래프 */
+.graph {
+    height: 150px; /* 그래프 높이 */
+    background-color: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    color: #4a5568;
+}
+
+/* 아이콘 영역 */
+.icon-container {
+    display: flex;
+    justify-content: space-around; /* 아이콘을 가로로 배치 */
+    gap: 1rem;
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* 개별 아이콘 */
+.icon-card {
+    width: 100px;
+    height: 100px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #4a5568;
+}
+
+/* LED 및 부저 상태 */
+.bulb-off, .buzzer-off {
+    width: 80px;
+    height: 80px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.bulb-off {
+    background-image: url('/static/images/lightoff.png');
+}
+
+.bulb-on {
+    background-image: url('/static/images/lighton.png');
+}
+
+.buzzer-off {
+    background-image: url('/static/images/buzzeroff.jpg');
+}
+
+.buzzer-on {
+    background-image: url('/static/images/buzzeron.jpg');
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .groupClass {
+        flex-direction: column;
+    }
+
+    .pageClass {
+        width: 100%;
+        height: auto;
+        padding: 1rem;
+    }
+
+    .graph-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: auto;
+    }
+
+    .sensor-container {
+        flex-direction: column; /* 작은 화면에서도 세로 정렬 유지 */
+    }
+
+    .icon-container {
+        flex-wrap: wrap; /* 아이콘이 가로로 공간이 부족하면 줄 바꿈 */
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .graph {
+        height: 150px;
+        font-size: 0.9rem;
+    }
+
+    .icon-container {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
 }
