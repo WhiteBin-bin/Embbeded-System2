@@ -7,8 +7,9 @@ $(document).ready(function () {
     var res1 = []; // IR 데이터
     var res2 = []; // TILT 데이터
     var res3 = []; // Light 데이터
+    const bulbElement = document.getElementById("bulb");
+    const buzzerElement = document.getElementById("buzzer");
 
-    
     var options = {
         colors: ["#30323c"],
         series: {
@@ -76,7 +77,18 @@ $(document).ready(function () {
                     res2.push([i, sensorData['TILT']]);
                     res3.push([i, sensorData['Light']]);
                 }
-
+                var LightValue = sensorData['Light'];
+                
+                if(LightValue == 1) {
+                    bulbElement.className = "bulb-on"
+                }else {
+                    bulbElement.className = "bulb-off"
+                }
+                if(sensorData['IR'] == 1 || sensorData['TILT'] == 1) {
+                    updateBuzzer(1)
+                }else {
+                    updateBuzzer(0)
+                }
                 // 차트 업데이트 함수 호출 (데이터를 받은 후에만 업데이트)
                 updateCharts();
             },
@@ -101,9 +113,18 @@ $(document).ready(function () {
         setTimeout(getData, updateInterval); // 일정 시간 후 다시 데이터를 가져옴
     }
 
+    function updateBuzzer(buzzervalue) {
+        if (buzzervalue == 1) {
+            buzzerElement.className = "buzzer-on"
+        }else {
+            buzzerElement.className = "buzzer-off"
+        }
+    }
+
     // 업데이트 간격 설정 및 시작
     var updateInterval = 1000; // 1초마다 업데이트
 
     // 첫 번째 호출로 데이터를 가져오기 시작
     getData();
+
 });
