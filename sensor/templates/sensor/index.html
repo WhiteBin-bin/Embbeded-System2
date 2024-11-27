@@ -35,7 +35,7 @@
             <h2 class="LittleTitle">실시간 데이터 모니터링</h2>
             <div class="groupClass">
                 <div class="pageClass">
-                    <div class="LittleTitle">Static Table</div>
+                    <div class="LittleTitle">센서 테이블</div>
                     <table>
                         <thead>
                             <tr>
@@ -50,10 +50,10 @@
                                 {% for sensor in sensor_value_list %}
                                 <tr>
                                     <td>{{ sensor.id }}</td>
-                                    {% with sensor.value|split:", " as values %}
-                                        <td>{{ values.0 }}</td>
-                                        <td>{{ values.1 }}</td>
-                                        <td>{{ values.2 }}</td>
+                                    {% with sensor.value|split as status %}
+                                        <td>{{ status.0 }}</td> <!-- IR -->
+                                        <td>{{ status.1 }}</td> <!-- Light -->
+                                        <td>{{ status.2 }}</td> <!-- TILT -->
                                     {% endwith %}
                                 </tr>
                                 {% endfor %}
