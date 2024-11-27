@@ -8,7 +8,7 @@ import random
 import json
 
 def index(request): 
-    sensor_value_list = Sens.objects.all().order_by('-reg_date').values()[:5]
+    sensor_value_list = Sens.objects.all().order_by('-reg_date').values()[:14]
     context = {
         'sensor_value_list': sensor_value_list,
     }
