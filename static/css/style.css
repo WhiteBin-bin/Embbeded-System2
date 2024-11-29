@@ -1,49 +1,15 @@
 /* Importing custom font */
-@import url('//cdn.jsdelivr.net/gh/neodgm/neodgm-webfont@1.600/neodgm/style.css');
+@import url("//cdn.jsdelivr.net/gh/neodgm/neodgm-webfont@1.600/neodgm/style.css");
 
 /* 기본 페이지 설정 */
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     color: #333333;
     background-color: #30323c; /* 밝은 회색 배경 */
     height: 100%;
-}
-
-/* 상단 헤더와 네비게이션 스타일 */
-header {
-    background-color: #30323c;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
-    padding: 1.5rem 0;
-}
-
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2.5rem;
-}
-
-header h1 {
-    color: #68f350;
-    font-size: 1.8rem;
-    font-weight: bold;
-}
-
-header nav ul {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-    margin: 0;
-    padding: 0;
-}
-
-header nav ul li a {
-    color: #68f350;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s, transform 0.3s;
 }
 
 h2.LittleTitle {
@@ -88,11 +54,12 @@ table {
     border-collapse: collapse;
     font-size: 1rem;
     background-color: #30323c;
-    border:1px solid black;
+    border: 1px solid black;
     color: white;
 }
 
-table th, table td {
+table th,
+table td {
     padding: 0.8rem;
     text-align: center;
     border-bottom: 1px solid black;
@@ -121,10 +88,9 @@ table tr:hover {
     padding: 1rem;
     border-radius: 10px;
 }
-.chart-title{
+.chart-title {
     color: #68f350;
 }
-
 
 /* 개별 그래프 */
 .floatchart {
@@ -149,7 +115,6 @@ table tr:hover {
     border-radius: 10px;
 }
 
-
 /* 개별 아이콘 */
 .icon-card {
     width: 100px;
@@ -161,11 +126,16 @@ table tr:hover {
     align-items: center;
     font-size: 1rem;
     font-weight: bold;
-    color: #68f350 ;
+    color: #68f350;
 }
 
 /* LED 및 부저 상태 */
-.bulb-off, .buzzer-off, .bulb-on, .buzzer-on, .power-on, .power-off {
+.bulb-off,
+.buzzer-off,
+.bulb-on,
+.buzzer-on,
+.power-on,
+.power-off {
     width: 80px;
     height: 80px;
     background-size: contain;
@@ -174,33 +144,33 @@ table tr:hover {
 }
 
 .bulb-off {
-    background-image: url('/static/images/lightoff.png');
+    background-image: url("/static/images/lightoff.png");
 }
 
 .bulb-on {
-    background-image: url('/static/images/lighton.png');
+    background-image: url("/static/images/lighton.png");
 }
 
 .buzzer-off {
-    background-image: url('/static/images/buzzeroff.jpg');
+    background-image: url("/static/images/buzzeroff.jpg");
 }
 
 .buzzer-on {
-    background-image: url('/static/images/buzzeron.jpg');
+    background-image: url("/static/images/buzzeron.jpg");
 }
 
 /* 절전 모드 상태 */
 .power-off {
     width: 80px;
     height: 80px;
-    background-image: url('/static/images/poweroff.png'); /* 절전 모드 비활성화 이미지 */
+    background-image: url("/static/images/poweroff.png"); /* 절전 모드 비활성화 이미지 */
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .power-on {
-    background-image: url('/static/images/poweron.png'); /* 절전 모드 활성화 이미지 */
+    background-image: url("/static/images/poweron.png"); /* 절전 모드 활성화 이미지 */
 }
 
 /* 반응형 디자인 */
@@ -239,12 +209,12 @@ table tr:hover {
         align-items: center;
         width: 300px; /* 그래프 너비 */
     }
-    
+
     .chart-title {
         font-size: 16px;
         font-weight: bold;
         text-align: center;
-    } 
+    }
 }
 
 @media (max-width: 480px) {

@@ -1,4 +1,6 @@
-body, ul, h2 {
+body,
+ul,
+h2 {
     margin: 0;
     padding: 0;
 }
@@ -8,15 +10,22 @@ li {
 }
 
 body {
-    background-color: white !important;
-    color: #999;
+    background-color: #111; /* 배경색 */
+    color: #999; /* 텍스트 색상 */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* 세로 가운데 정렬 */
+    align-items: center; /* 가로 가운데 정렬 */
+    height: 100vh; /* 화면 전체 높이 */
+    box-sizing: border-box; /* 여백 계산 포함 */
 }
 
 .wrapper {
     display: flex;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column; /* 세로 정렬 */
+    align-items: center; /* 중앙 정렬 */
+    padding: 20px; /* 내부 여백 추가 */
 }
 
 .team {
@@ -24,6 +33,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 30px;
 }
 
 .team-item {
@@ -108,9 +118,48 @@ body {
     font-size: 20px;
 }
 
-/* .team-item:hover .profile-contents p {
-    opacity: 1;
-    transition-delay: 0.4s;
-    max-height: 6em;
-    margin-top: 0.4em;
-} */
+button {
+    border: 2px solid #68f350; /* 버튼 테두리 두께와 색상 지정 */
+    box-shadow: 0 0 5px #68f350, 0 0 25px #68f350;
+    background-color: #68f350; /* 기본 배경색 */
+    color: black; /* 기본 텍스트 색상 */
+    font-size: 16px; /* 텍스트 크기 */
+    padding: 10px 20px; /* 버튼 내부 여백 */
+    border-radius: 5px; /* 버튼 모서리 둥글게 */
+    cursor: pointer; /* 마우스 커서 변경 */
+    transition: all 0.3s ease; /* 부드러운 효과 전환 */
+    position: relative; /* 버튼 안쪽 요소 위치 설정 */
+    overflow: hidden; /* 버튼 밖으로 나가는 애니메이션 숨기기 */
+}
+
+button::before {
+    content: ""; /* 빈 요소 추가 */
+    position: absolute;
+    top: 0;
+    left: -100%; /* 애니메이션 시작 지점 */
+    width: 300%; /* 충분히 넓은 크기 */
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.6),
+        transparent
+    );
+    transform: skewX(-45deg); /* 기울어진 빛줄기 효과 */
+    transition: left 0.5s ease;
+}
+
+button:hover::before {
+    left: 100%; /* 애니메이션 종료 지점 */
+}
+
+button:hover {
+    background-color: #68f350; /* 호버 시 배경색 변경 */
+    color: white; /* 호버 시 텍스트 색상 변경 */
+    box-shadow: 0 0 10px #68f350, 0 0 50px #68f350, 0 0 100px #68f350,
+        0 0 200px #68f350;
+}
+
+button:active {
+    transform: scale(0.95); /* 클릭 시 버튼 크기 살짝 축소 */
+}
