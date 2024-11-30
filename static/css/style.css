@@ -1,62 +1,32 @@
-/* Importing custom font */
-@import url('//cdn.jsdelivr.net/gh/neodgm/neodgm-webfont@1.600/neodgm/style.css');
-
+@font-face {
+    font-family: 'DungGeunMo';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 /* 기본 페이지 설정 */
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: "DungGeunMo";
     color: #333333;
-    background-color: #f3f4f6; /* 밝은 회색 배경 */
+    background-color: #30323c; /* 밝은 회색 배경 */
     height: 100%;
 }
 
-/* 상단 헤더와 네비게이션 스타일 */
-header {
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
-    padding: 1.5rem 0;
-}
-
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2.5rem;
-}
-
-header h1 {
-    color: #2b6cb0;
-    font-size: 1.8rem;
-    font-weight: bold;
-}
-
-header nav ul {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-    margin: 0;
-    padding: 0;
-}
-
-header nav ul li a {
-    color: #4a5568;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s, transform 0.3s;
-}
-
-header nav ul li a:hover {
-    color: #3182ce;
-    transform: scale(1.05);
-}
-
 h2.LittleTitle {
-    font-size: 2.8rem;
-    color: #1a365d; /* Tailwind's darker blue */
+    font-size: 2.9rem;
+    color: #68f350;
     margin-bottom: 2rem;
     text-align: center;
-    font-weight: 700;
+    font-weight: 600;
+    background-color: #45464d;
+    border-radius: 10px;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
 }
 
 /* 메인 컨테이너 레이아웃 */
@@ -69,75 +39,90 @@ h2.LittleTitle {
     flex: 1;
     padding: 1rem;
     overflow-y: auto;
-    border-right: 2px solid #e2e8f0;
-    background-color: #ffffff;
-    box-shadow: inset -4px 0 6px rgba(0, 0, 0, 0.05);
+    border-right: 2px solid #30323c;
+    background-color: #45464d;
+    border-radius: 10px;
 }
-
+.LittleTitle {
+    color: #68f350;
+    text-align: center;
+    font-size: 2rem;
+    border-radius: 8px;
+    background-color: #30323c;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    min-height: 50px;
+}
 /* 센서(그래프) 영역 */
 .sensor-container {
     flex: 3;
     display: flex;
     flex-direction: column; /* 세로로 정렬 */
     gap: 1rem;
-    background-color: #ffffff;
+    background-color: #45464d;
     padding: 1rem;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* 테이블 스타일 */
 table {
     width: 100%;
     border-collapse: collapse;
+    border-radius: 8px;
     font-size: 1rem;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid black;
+    color: white;
 }
 
-table th, table td {
+table th,
+table td {
     padding: 0.8rem;
     text-align: center;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid black;
 }
 
 table th {
-    background-color: #2c5282;
-    color: #ffffff;
+    background-color: #30323c;
+    color: white;
     font-size: 0.9rem;
 }
 
 table tr:nth-child(even) {
-    background-color: #f7fafc;
+    background-color: #4c4e5b;
+    color: white;
 }
 
 table tr:hover {
-    background-color: #edf2f7;
+    background-color: #45464a;
 }
 
 .graph-container {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    background-color: #ffffff;
+    background-color: #30323c;
     padding: 1rem;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.chart-title {
+    color: #68f350;
+    display: flex;
+    align-items: center; 
+    min-height: 37px;
 }
 
 /* 개별 그래프 */
 .floatchart {
     height: 150px; /* 그래프 높이 */
-    background-color: #f7fafc;
-    border: 1px solid #e2e8f0;
+    background-color: #30323c;
+    border: 3px solid #45464a;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1rem;
-    color: #4a5568;
+    color: #68f350;
 }
 
 /* 아이콘 영역 */
@@ -145,65 +130,65 @@ table tr:hover {
     display: flex;
     justify-content: space-around; /* 아이콘을 가로로 배치 */
     gap: 1rem;
-    background-color: #ffffff;
+    background-color: #30323c;
     padding: 1rem;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
 
 /* 개별 아이콘 */
 .icon-card {
-    width: 100px;
-    height: 100px;
-    background-color: #ffffff;
+    width: 200px;
+    height: 120px; /* 높이를 조금 늘려서 공간 확보 */
+    background-color: #45464a;
+    border: 2px solid rgb(117, 114, 114);
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
+    flex-direction: column; /* 세로 방향으로 정렬 */
     justify-content: center;
     align-items: center;
     font-size: 1rem;
     font-weight: bold;
-    color: #4a5568;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.2);
+    color: #68f350;
 }
 
-/* LED 및 부저 상태 */
-.bulb-off, .buzzer-off, .bulb-on, .buzzer-on, .power-on, .power-off {
-    width: 80px;
-    height: 80px;
+.bulb-off,
+.buzzer-off,
+.bulb-on,
+.buzzer-on,
+.power-on,
+.power-off {
+    width: 50px;
+    height: 50px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    margin-top: 5px; /* 텍스트와 이미지 사이에 간격 추가 */
 }
 
 .bulb-off {
-    background-image: url('/static/images/lightoff.png');
+    background-image: url("/static/images/lightoff.png");
 }
 
 .bulb-on {
-    background-image: url('/static/images/lighton.png');
+    background-image: url("/static/images/lighton.png");
 }
 
 .buzzer-off {
-    background-image: url('/static/images/buzzeroff.jpg');
+    background-image: url("/static/images/buzzeroff.png");
 }
 
 .buzzer-on {
-    background-image: url('/static/images/buzzeron.jpg');
+    background-image: url("/static/images/buzzeron.png");
 }
 
 /* 절전 모드 상태 */
 .power-off {
-    width: 80px;
-    height: 80px;
-    background-image: url('/static/images/poweroff.png'); /* 절전 모드 비활성화 이미지 */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-image: url("/static/images/poweroff.png"); /* 절전 모드 비활성화 이미지 */
 }
 
 .power-on {
-    background-image: url('/static/images/poweron.png'); /* 절전 모드 활성화 이미지 */
+    background-image: url("/static/images/poweron.png"); /* 절전 모드 활성화 이미지 */
 }
 
 /* 반응형 디자인 */
@@ -242,12 +227,12 @@ table tr:hover {
         align-items: center;
         width: 300px; /* 그래프 너비 */
     }
-    
+
     .chart-title {
         font-size: 16px;
         font-weight: bold;
         text-align: center;
-    } 
+    }
 }
 
 @media (max-width: 480px) {
