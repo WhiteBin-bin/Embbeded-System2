@@ -27,6 +27,11 @@ def setSensor(request):
     except KeyError:
         return JsonResponse({"message": "KEY_ERROR"}, status=400)
 
+def getTableSensor(request):
+    sensor_data = Sens.objects.all().order_by('-reg_date').values('id', 'value')[:14]
+    data = list(sensor_data)  # QuerySet을 리스트로 변환
+    return JsonResponse(data, safe=False)
+
 def cane_description(request):
     return render(request, 'sensor/cane_description.html')
 
