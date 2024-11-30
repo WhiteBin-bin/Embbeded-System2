@@ -1,23 +1,32 @@
-/* Importing custom font */
-@import url("//cdn.jsdelivr.net/gh/neodgm/neodgm-webfont@1.600/neodgm/style.css");
-
+@font-face {
+    font-family: 'DungGeunMo';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 /* 기본 페이지 설정 */
 html,
 body {
     margin: 0;
     padding: 0;
-    font-family: "Roboto", sans-serif;
+    font-family: "DungGeunMo";
     color: #333333;
     background-color: #30323c; /* 밝은 회색 배경 */
     height: 100%;
 }
 
 h2.LittleTitle {
-    font-size: 2.8rem;
-    color: #68f350; /* Tailwind's darker blue */
+    font-size: 2.9rem;
+    color: #68f350;
     margin-bottom: 2rem;
     text-align: center;
-    font-weight: 700;
+    font-weight: 600;
+    background-color: #45464d;
+    border-radius: 10px;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
 }
 
 /* 메인 컨테이너 레이아웃 */
@@ -31,12 +40,20 @@ h2.LittleTitle {
     padding: 1rem;
     overflow-y: auto;
     border-right: 2px solid #30323c;
-    background-color: #30323c;
+    background-color: #45464d;
+    border-radius: 10px;
 }
 .LittleTitle {
-    color: white;
+    color: #68f350;
+    text-align: center;
+    font-size: 2rem;
+    border-radius: 8px;
+    background-color: #30323c;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    min-height: 50px;
 }
-
 /* 센서(그래프) 영역 */
 .sensor-container {
     flex: 3;
@@ -52,8 +69,8 @@ h2.LittleTitle {
 table {
     width: 100%;
     border-collapse: collapse;
+    border-radius: 8px;
     font-size: 1rem;
-    background-color: #30323c;
     border: 1px solid black;
     color: white;
 }
@@ -66,7 +83,7 @@ table td {
 }
 
 table th {
-    background-color: #4c4e5b;
+    background-color: #30323c;
     color: white;
     font-size: 0.9rem;
 }
@@ -90,13 +107,16 @@ table tr:hover {
 }
 .chart-title {
     color: #68f350;
+    display: flex;
+    align-items: center; 
+    min-height: 37px;
 }
 
 /* 개별 그래프 */
 .floatchart {
     height: 150px; /* 그래프 높이 */
     background-color: #30323c;
-    border: 3px solid #e2e8f0;
+    border: 3px solid #45464a;
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -117,30 +137,33 @@ table tr:hover {
 
 /* 개별 아이콘 */
 .icon-card {
-    width: 100px;
-    height: 100px;
-    background-color: #ffffff;
+    width: 200px;
+    height: 120px; /* 높이를 조금 늘려서 공간 확보 */
+    background-color: #45464a;
+    border: 2px solid rgb(117, 114, 114);
     border-radius: 10px;
     display: flex;
+    flex-direction: column; /* 세로 방향으로 정렬 */
     justify-content: center;
     align-items: center;
     font-size: 1rem;
     font-weight: bold;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.2);
     color: #68f350;
 }
 
-/* LED 및 부저 상태 */
 .bulb-off,
 .buzzer-off,
 .bulb-on,
 .buzzer-on,
 .power-on,
 .power-off {
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    margin-top: 5px; /* 텍스트와 이미지 사이에 간격 추가 */
 }
 
 .bulb-off {
@@ -152,21 +175,16 @@ table tr:hover {
 }
 
 .buzzer-off {
-    background-image: url("/static/images/buzzeroff.jpg");
+    background-image: url("/static/images/buzzeroff.png");
 }
 
 .buzzer-on {
-    background-image: url("/static/images/buzzeron.jpg");
+    background-image: url("/static/images/buzzeron.png");
 }
 
 /* 절전 모드 상태 */
 .power-off {
-    width: 80px;
-    height: 80px;
     background-image: url("/static/images/poweroff.png"); /* 절전 모드 비활성화 이미지 */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 .power-on {
