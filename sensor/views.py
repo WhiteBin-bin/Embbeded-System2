@@ -7,13 +7,6 @@ from django.utils import timezone
 import random
 import json
 
-def index(request): 
-    sensor_value_list = Sens.objects.all().order_by('-reg_date').values()[:14]
-    context = {
-        'sensor_value_list': sensor_value_list,
-    }
-    return render(request, 'sensor/index.html', context)
-
 # Create your views here.
 def getSensor(request, cnt):
     results = list(Sens.objects.all().order_by('-reg_date').values())[:cnt][::-1]
@@ -37,3 +30,6 @@ def cane_description(request):
 
 def our_team(request):
     return render(request, 'sensor/our_team.html')
+
+def index(request): 
+    return render(request, 'sensor/index.html')
