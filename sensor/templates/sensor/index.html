@@ -1,5 +1,4 @@
 {% load static %}
-{% load custom_filters %}
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -30,20 +29,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% if sensor_value_list %}
-                                {% for sensor in sensor_value_list %}
-                                <tr>
-                                    <td>{{ sensor.id }}</td>
-                                    {% with sensor.value|split as status %}
-                                        <td>{{ status.0 }}</td> <!-- IR -->
-                                        <td>{{ status.1 }}</td> <!-- Light -->
-                                        <td>{{ status.2 }}</td> <!-- TILT -->
-                                    {% endwith %}
-                                </tr>
-                                {% endfor %}
-                            {% else %}
-                                <p>No sensor values are available.</p>
-                            {% endif %}
                         </tbody>
                     </table>
                 </div>

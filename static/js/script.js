@@ -115,6 +115,33 @@ $(document).ready(function () {
         });
     }
 
+    function updateSensorData() {
+        $.ajax({
+            url: "/sensor/get_sensor_data/",
+            method: "GET",
+            success: function(data) {
+                let tableBody = $("table tbody");
+                tableBody.empty();  // 기존 테이블 데이터 삭제
+                
+                // 새로운 데이터로 테이블 업데이트
+                data.forEach(function(sensor) {
+                    let status = sensor.value.split(", ");
+                    let newRow = `<tr>
+                                    <td>${sensor.id}</td>
+                                    <td>${status[0].includes("1") ? "ON" : "OFF"}</td> <!-- IR -->
+                                    <td>${status[1].includes("1") ? "ON" : "OFF"}</td> <!-- Light -->
+                                    <td>${status[2].includes("1") ? "ON" : "OFF"}</td> <!-- TILT -->
+                                  </tr>`;                    
+                    tableBody.append(newRow);
+                });
+                updateTables();
+            },
+            error: function(error) {
+                console.log("Error:", error);
+            }
+        });
+    }
+
     // 차트를 업데이트하는 함수
     function updateCharts() {
         // 각 차트에 데이터 설정 및 갱신
@@ -129,6 +156,11 @@ $(document).ready(function () {
         setTimeout(getData, updateInterval); // 일정 시간 후 다시 데이터를 가져옴
     }
 
+    function updateTables() {
+        // 각 차트에 데이터 설정 및 갱신
+        setTimeout(updateSensorData, updateInterval); // 일정 시간 후 다시 데이터를 가져옴
+    }
+
     function updateBuzzer(buzzervalue) {
         if (buzzervalue == 1) {
             buzzerElement.className = "buzzer-on"
@@ -141,5 +173,5 @@ $(document).ready(function () {
 
     // 첫 번째 호출로 데이터를 가져오기 시작
     getData();
-
+    updateSensorData();
 });
