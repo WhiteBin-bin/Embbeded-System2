@@ -52,6 +52,5 @@ while(1):
             continue
         try:
             response = session.post("http://localhost:8000/sensor/setSensor",data = json.dumps(data))
-            #requests.post("http://localhost:8000/sensor/setSensor", data = json.dumps(data),headers=headers,timeout=2.0) # 오래 걸림
         except:
             print("Invaild Command")
