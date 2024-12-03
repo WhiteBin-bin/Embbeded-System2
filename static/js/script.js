@@ -126,11 +126,15 @@ $(document).ready(function () {
                 // 새로운 데이터로 테이블 업데이트
                 data.forEach(function(sensor) {
                     let status = sensor.value.split(", ");
+                    // 상태에 따른 스타일 설정 함수
+                function getStyle(status) {
+                    return status === "ON" ? "color: #68f350;" : "color: rgb(207, 79, 79);";
+                }
                     let newRow = `<tr>
-                                    <td>${sensor.id}</td>
-                                    <td>${status[0].includes("1") ? "ON" : "OFF"}</td> <!-- IR -->
-                                    <td>${status[1].includes("1") ? "ON" : "OFF"}</td> <!-- Light -->
-                                    <td>${status[2].includes("1") ? "ON" : "OFF"}</td> <!-- TILT -->
+                                    <td style="color : white;">${sensor.id}</td>
+                                    <td style="${getStyle(status[0].includes("1") ? "ON" : "OFF")}">${status[0].includes("1") ? "ON" : "OFF"}</td> <!-- IR -->
+                                    <td style="${getStyle(status[1].includes("1") ? "ON" : "OFF")}">${status[1].includes("1") ? "ON" : "OFF"}</td> <!-- Light -->
+                                    <td style="${getStyle(status[2].includes("1") ? "ON" : "OFF")}">${status[2].includes("1") ? "ON" : "OFF"}</td> <!-- TILT -->
                                   </tr>`;                    
                     tableBody.append(newRow);
                 });
