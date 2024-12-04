@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'DungGeunMo';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body,
 ul,
 h2 {
@@ -130,6 +137,7 @@ button {
     transition: all 0.3s ease; /* 부드러운 효과 전환 */
     position: relative; /* 버튼 안쪽 요소 위치 설정 */
     overflow: hidden; /* 버튼 밖으로 나가는 애니메이션 숨기기 */
+    font-family: "DungGeunMo";
 }
 
 button::before {
