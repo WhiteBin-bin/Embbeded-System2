@@ -132,6 +132,8 @@ tbody tr:last-child td:last-child {
     display: flex;
     align-items: center; 
     min-height: 37px;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 /* 개별 그래프 */
@@ -177,7 +179,6 @@ tbody tr:last-child td:last-child {
 .bulb-off,
 .buzzer-off,
 .bulb-on,
-.buzzer-on,
 .power-on,
 .power-off {
     width: 50px;
@@ -186,6 +187,13 @@ tbody tr:last-child td:last-child {
     background-repeat: no-repeat;
     background-position: center;
     margin-top: 5px; /* 텍스트와 이미지 사이에 간격 추가 */
+}
+.buzzer-on {
+    width: 70px;
+    height: 55px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .bulb-off {
